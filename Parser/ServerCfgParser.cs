@@ -398,7 +398,9 @@ namespace ServerManager.Utilities
                             {
                                 if(m.GetValue(servercfgData) != null)
                                 {
-                                    value = $"{m.GetValue(servercfgData)},";
+                                    value = m.GetValue(servercfgData)?.GetType() == typeof(Boolean)
+                                        ? $"{m.GetValue(servercfgData)?.ToString()?.ToLower()}"
+                                        : $"{m.GetValue(servercfgData)}";
                                 }
                             }
 
